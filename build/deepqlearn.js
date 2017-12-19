@@ -223,6 +223,29 @@ var deepqlearn = deepqlearn || { REVISION: 'ALPHA' };
 
       return action;
     },
+    view:function(input_array,action){
+      this.forward_passes += 1;
+      this.last_input_array = input_array; // back this up
+
+      // create network input
+      var action;
+      if(this.forward_passes > this.temporal_window) {
+        // we have enough to actually do something reasonable
+        var net_input = this.getNetInput(input_array);
+      } else {
+        // pathological case that happens first few iterations
+        // before we accumulate window_size inputs
+        var net_input = [];
+      }
+
+      // remember the state and action we took for backward pass
+      this.net_window.shift();
+      this.net_window.push(net_input);
+      this.state_window.shift();
+      this.state_window.push(input_array);
+      this.action_window.shift();
+      this.action_window.push(action);
+    },
     backward: function(reward) {
       this.latest_reward = reward;
       this.average_reward_window.add(reward);

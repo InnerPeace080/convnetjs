@@ -1,0 +1,22 @@
+{
+  "name": "convnetjs",
+  "version": "1.0.0",
+  "description": "ConvNetJS is a Javascript implementation of Neural networks, together with nice browser-based demos. It currently supports:",
+  "main": "build/convnet.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnerPeace080/convnetjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InnerPeace080/convnetjs/issues"
+  },
+  "homepage": "https://github.com/InnerPeace080/convnetjs#readme"
+}
